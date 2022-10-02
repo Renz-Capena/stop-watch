@@ -1,3 +1,5 @@
+'use strict'
+
 const startBtn = document.querySelector('#start')
 const stopBtn = document.querySelector('#stop')
 const resetBtn = document.querySelector('#reset')
@@ -10,36 +12,35 @@ const sec = document.querySelector('#sec')
 let hrsHolder = 0;
 let minHolder = 0;
 let secHolder = 0;
-let milSecHolder = 0;
 
 let runtime;
 
 let active = true
 
 const functionHolder = ()=>{
-    milSecHolder += 1;
-        
-        if(milSecHolder === 450){
-            milSecHolder = 0;
 
-            sec.textContent = secHolder += 1;
+    secHolder += 1
 
-            if(secHolder == 60){
-                secHolder = 0;
-                sec.textContent = secHolder;
+    sec.textContent = secHolder >= 10 ? secHolder : `0${secHolder}`;
 
+    if(secHolder == 60){
+        secHolder = 0;
+        sec.textContent = `0${secHolder}`;
 
-                min.textContent = minHolder += 1
+        minHolder += 1
 
-                if(minHolder == 60){
-                    minHolder = 0;
-                    min.textContent = minHolder;
+        min.textContent = minHolder >= 10 ? minHolder : `0${minHolder}`
 
+        if(minHolder == 60){
+            minHolder = 0;
+            min.textContent = `0${minHolder}`;
 
-                    hrs.textContent = hrsHolder += 1;
-                }
-            }
+            hrsHolder += 1;
+
+            hrs.textContent = hrsHolder >= 10 ? hrsHolder : `0${hrsHolder}`
         }
+    }
+
 
 }
 
@@ -51,7 +52,7 @@ startBtn.addEventListener('click',function(){
 
         active = false;
 
-        runtime = setInterval(functionHolder,0)
+        runtime = setInterval(functionHolder,1000)
 
     }else{
         alert("Please click reset to start again")
@@ -69,7 +70,6 @@ resetBtn.addEventListener('click',function(){
     hrsHolder = 0;
     minHolder = 0;
     secHolder = 0;
-    milSecHolder = 0;
 
     hrs.textContent = "00";
     min.textContent = "00";
