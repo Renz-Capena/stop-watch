@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    text-align: center;
+    background: linear-gradient(to top left,rgb(48, 157, 165),rgb(3, 27, 133));
+    height: 100vh;
+}
+.btn_wrapper{
+    /* border: 1px solid; */
+    width: fit-content;
+    margin: auto;
+    margin-top: 5vh;
+}
+.btn_wrapper button{
+    margin: 10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-size: 18px;
+    font-weight: bold;
+}
+.btn_wrapper button:hover{
+    background-color: aliceblue;
+    color: black;
+}
+.btn_wrapper button:focus{
+    background-color: rgb(10, 114, 16);
+}
+.timer_wrapper{
+    border: 1px solid;
+    width: min(500px,100%);
+    font-size: 50px;
+    font-family: courier;
+    font-weight: bolder;
+    margin: auto;
+    margin-top: 10vh;
+}
+.timer_wrapper div:nth-child(2){
+    font-size: 25px;
+    letter-spacing: 3px;
+}
